@@ -39,11 +39,10 @@ class EncryptionKey with ChangeNotifier {
     code.clear();
     filteredWords.clear();
 
-    code = new List<int>.generate(3, (int index) => index); // [0, 1, 4]
+    code = [0, 1, 2, 3];
     code.shuffle();
-    code.forEach((wordIndex) =>
-      filteredWords.add(words[wordIndex])
-    );
+    code.removeLast();
+    code.forEach((wordIndex) => filteredWords.add(words[wordIndex]));
     notifyListeners();
   }
 }
